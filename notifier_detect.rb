@@ -1,9 +1,14 @@
 require 'amqp' 
 require 'slack-ruby-bot' 
+require 'dotenv/load'
+
 
 slack_token = ENV["SLACK_TOKEN"]
 queue_server = ENV["QUEUE_SERVER"]
 
+
+
+p slack_token
 Slack.configure do |config|
     config.token = slack_token
 end
@@ -21,5 +26,3 @@ EventMachine.run do
         client.chat_postMessage(channel: '#notifier_ygosu', text:  payload, as_user: true)
     end 
 end
-
- 

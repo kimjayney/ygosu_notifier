@@ -2,6 +2,8 @@ require 'net/http'
 require 'json'
 require 'nokogiri'
 require "bunny"
+require 'dotenv/load'
+
 
 
 ygosu_user_id = ENV["YGOSU_USER_ID"]
