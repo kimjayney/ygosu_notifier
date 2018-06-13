@@ -111,7 +111,7 @@ def init (queue_server, ygosu_user_id, ygosu_user_pw)
                 local_payload_data = loop_latest_formatted
             end
         end
-        sleep 2
+        sleep ENV["SLEEP_TIME"]
     end
 end 
  
