@@ -62,7 +62,7 @@ def parse_result(result)
     return "https://m.ygosu.com#{idx[0][1]}" , text 
 end 
 
-def queue_client
+def queue_client(queue_server)
     conn = Bunny.new(:host =>  queue_server, :port => "5672")
     conn.start
     ch = conn.create_channel
@@ -74,7 +74,7 @@ def queue_client
     return text,  idx[0][1]
 end 
 
-def sync_queue_client(send_payload)
+def sync_queue_client(queue_server, send_payload)
     conn = Bunny.new(:host => queue_server , :port => "5672")
     conn.start
     ch = conn.create_channel
@@ -87,7 +87,7 @@ def sync_queue_client(send_payload)
     conn.stop
     return payload
 end
-def init (ygosu_user_id, ygosu_user_pw)
+def init (queue_server, ygosu_user_id, ygosu_user_pw)
     local_payload_data = nil
     session_key = get_session_key()
     login_request(session_key, ygosu_user_id, ygosu_user_pw)
@@ -106,7 +106,7 @@ def init (ygosu_user_id, ygosu_user_pw)
                 p "local: #{local_payload_data}"
                 p "latest: #{loop_latest_formatted}"
             else
-                sync_queue_client(loop_latest_formatted)
+                sync_queue_client(queue_server, loop_latest_formatted)
                 p "Sent to RabbitMQ Push Server"
                 local_payload_data = loop_latest_formatted
             end
@@ -115,4 +115,4 @@ def init (ygosu_user_id, ygosu_user_pw)
     end
 end 
  
-init(ygosu_user_id, ygosu_user_pw)
+init(queue_server,ygosu_user_id, ygosu_user_pw)
