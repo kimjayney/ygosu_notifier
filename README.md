@@ -1,6 +1,5 @@
 # ygosu Slack Notifier implementation
 
---
 
 ## Purpose
 - Notify to user when other users comments to post
@@ -18,3 +17,7 @@
 - Loops 2 seconds
 
 ## Environment
+- .env
+```
+SLACK
+```
