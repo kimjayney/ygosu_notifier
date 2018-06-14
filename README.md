@@ -16,6 +16,10 @@
 - check ygosu.com notifiy page when running Publisher
 - Loops 2 seconds
 
+## Pros
+
+## Cons
+
 ## Environment
 - .env
 ```
@@ -24,3 +28,7 @@ QUEUE_SERVER=RABBIT_MQ_SERVER_HOSTNAME
 YGOSU_USER_ID=YGOSU_ID
 YGOSU_USER_PW=YGOSU_PW
 ```
+
+## Example view
+ 
+[![Video Label](http://i.imgur.com/KT1TPcI_d.jpg?maxwidth=640&shape=thumb&fidelity=medium)](https://imgur.com/a/UhXKJBQ)
