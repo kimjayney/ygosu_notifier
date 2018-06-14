@@ -17,8 +17,9 @@
 - Loops 2 seconds
 
 ## Pros
-
+- Check Notifier real-time
 ## Cons
+- ygosu server overload when too many login requests
 
 ## Environment
 - .env
