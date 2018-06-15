@@ -1,0 +1,5 @@
+gem 'nokogiri'
+gem 'bunny'
+gem 'dotenv'
+gem 'amqp'
+gem 'slack-ruby-bot'
